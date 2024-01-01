@@ -35,14 +35,13 @@ public class EditActivity extends AppCompatActivity {
 
                 // Save the edited content (you can implement your own logic here)
 
-                // For simplicity, just go back to MainActivity
-                startActivity(new Intent(EditActivity.this, MainActivity.class));
+                // Go to ViewActivity to display the edited content
+                Intent intent = new Intent(EditActivity.this, ViewActivity.class);
+                intent.putExtra("title", editedTitle);
+                intent.putExtra("content", editedContent);
+                startActivity(intent);
                 finish();
             }
         });
     }
 }
-
-
-
-

@@ -20,13 +20,15 @@ public class ViewActivity extends AppCompatActivity {
         if (intent.hasExtra("title") && intent.hasExtra("content")) {
             String title = intent.getStringExtra("title");
             String content = intent.getStringExtra("content");
-            tvViewTitle.setText(title);
-            tvViewContent.setText(content);
+
+            // Check if the content is from EditActivity
+            if (intent.hasExtra("isEdit") && intent.getBooleanExtra("isEdit", false)) {
+                tvViewTitle.setText("編輯標題: " + title);
+                tvViewContent.setText("編輯內容: " + content);
+            } else {
+                tvViewTitle.setText("標題: " + title);
+                tvViewContent.setText("內容: " + content);
+            }
         }
     }
 }
-
-
-
-
-
